@@ -19,15 +19,17 @@ COPY . .
 RUN pnpm build
 
 # Production stage
-FROM nginx:alpine
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install serve for static files
+RUN npm install -g serve
 
 # Copy built files from builder
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /app/public
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 3000
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["serve", "-s", "public", "-l", "3000"]
 
