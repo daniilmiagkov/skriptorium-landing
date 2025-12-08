@@ -31,5 +31,5 @@ COPY --from=builder /app/dist /app/public
 
 EXPOSE 3000
 
-CMD ["serve", "-s", "public", "-l", "3000"]
+CMD ["serve", "-s", "public", "--listen", "http://0.0.0.0:3000"]
 
