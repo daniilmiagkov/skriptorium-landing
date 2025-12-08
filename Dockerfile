@@ -1,35 +1,32 @@
+# landing/Dockerfile
 # Build stage
 FROM node:20-alpine AS builder
-
 WORKDIR /app
 
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy package files
-COPY package.json pnpm-lock.yaml* ./
+# Copy package files first for caching
+COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy source files
+# Copy source and build
 COPY . .
-
-# Build the application
 RUN pnpm build
 
-# Production stage
-FROM node:20-alpine
+# Production stage (nginx)
+FROM nginx:stable-alpine AS runner
+# Remove default site (optional) and copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-WORKDIR /app
+# Copy built static files
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Install serve for static files
-RUN npm install -g serve
+# Fix permissions (nginx runs as nginx user)
+RUN chown -R nginx:nginx /usr/share/nginx/html
 
-# Copy built files from builder
-COPY --from=builder /app/dist /app/public
+EXPOSE 80
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s CMD wget -qO- http://localhost/ || exit 1
 
-EXPOSE 3000
-
-CMD ["serve", "-s", "public", "--listen", "http://0.0.0.0:3000"]
-
+CMD ["nginx", "-g", "daemon off;"]
