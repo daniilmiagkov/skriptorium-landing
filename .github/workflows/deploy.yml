@@ -1,0 +1,29 @@
+name: Deploy Landing — on self-hosted
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'landing/**'
+      - 'docker-compose.yml'
+      - '.github/workflows/deploy-landing.yml'
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, deploy]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy landing (runs on VPS runner)
+        run: |
+          set -euo pipefail
+          cd /home/deploy/landing
+          git fetch --all --prune
+          git reset --hard origin/main
+
+          docker compose pull || true
+          docker compose up -d --build --remove-orphans
+          docker image prune -f || true
