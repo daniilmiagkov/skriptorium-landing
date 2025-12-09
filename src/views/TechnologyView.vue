@@ -11,14 +11,12 @@
         >
           <h2 :class="$style.techSectionTitle">{{ section.title }}</h2>
           <div :class="$style.techList">
-            <div
+            <Card
               v-for="tech in section.technologies"
               :key="tech.name"
-              :class="$style.techItem"
-            >
-              <h3 :class="$style.techItemName">{{ tech.name }}</h3>
-              <p :class="$style.techItemDescription">{{ tech.description }}</p>
-            </div>
+              :description="tech.description"
+              :title="tech.name"
+            />
           </div>
         </section>
       </div>
@@ -28,7 +26,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import Card from '@/components/Card.vue'
 interface Technology {
   name: string
   description: string
