@@ -6,7 +6,7 @@ on:
     paths:
       - 'landing/**'
       - 'docker-compose.yml'
-      - '.github/workflows/deploy-landing.yml'
+      - '.github/workflows/deploy.yml'
 
 jobs:
   deploy:
