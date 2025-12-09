@@ -3,10 +3,6 @@ name: Deploy Landing — on self-hosted
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'landing/**'
-      - 'docker-compose.yml'
-      - '.github/workflows/deploy.yml'
 
 jobs:
   deploy:
