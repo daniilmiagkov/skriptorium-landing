@@ -48,7 +48,7 @@
 .pageTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-8;
   text-align: center;
   color: $text-color;
 }
@@ -59,33 +59,33 @@
 }
 
 .contactSection {
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-8;
 
   h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-4;
     color: $text-color;
   }
 
   p {
     color: $text-light;
     line-height: 1.8;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-4;
   }
 }
 
 .infoList {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $spacing-4;
 }
 
 .infoItem {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
-  padding: $spacing-md;
+  gap: $spacing-1;
+  padding: $spacing-4;
   background: $bg-light;
   border-radius: 8px;
   border: 1px solid $border-color;
