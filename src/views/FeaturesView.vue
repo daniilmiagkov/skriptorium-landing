@@ -87,7 +87,7 @@ const features = ref<Feature[]>([
 .pageTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-8;
   text-align: center;
   color: $text-color;
 }
@@ -95,7 +95,7 @@ const features = ref<Feature[]>([
 .featuresGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: $spacing-lg;
+  gap: $spacing-6;
 }
 
 @media (max-width: $breakpoint-md) {

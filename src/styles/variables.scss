@@ -8,11 +8,15 @@ $bg-light: #f8fafc;
 $border-color: #e2e8f0;
 
 // Spacing
-$spacing-xs: 0.5rem;
-$spacing-sm: 1rem;
-$spacing-md: 1.5rem;
-$spacing-lg: 2rem;
-$spacing-xl: 3rem;
+$spacing-1: 0.25rem;  // 4px
+$spacing-2: 0.5rem;   // 8px
+$spacing-3: 0.75rem;  // 12px
+$spacing-4: 1rem;     // 16px
+$spacing-5: 1.25rem;  // 20px
+$spacing-6: 1.5rem;   // 24px
+$spacing-7: 1.75rem;  // 28px
+$spacing-8: 2rem;     // 32px
+$spacing-12: 3rem;    // 48px
 
 // Breakpoints
 $breakpoint-sm: 640px;

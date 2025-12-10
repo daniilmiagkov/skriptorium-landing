@@ -1,7 +1,11 @@
 <template>
   <div :class="$style.about">
     <div class="container">
-      <article :class="$style.article">
+      <p>
+        Здесь будет презентация, подробная информация
+      </p>
+
+      <!-- <article :class="$style.article">
         <h1 :class="$style.articleTitle">О проекте Skriptorium</h1>
         
         <section :class="$style.articleSection">
@@ -41,7 +45,7 @@
             медицинских учреждений.
           </p>
         </section>
-      </article>
+      </article> -->
     </div>
   </div>
 </template>
@@ -63,34 +67,34 @@
 .articleTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-8;
   color: $text-color;
 }
 
 .articleSection {
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-8;
 
   h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-4;
     color: $text-color;
   }
 
   p {
     color: $text-light;
     line-height: 1.8;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-4;
   }
 
   ul {
     color: $text-light;
     line-height: 1.8;
-    padding-left: $spacing-lg;
-    margin-top: $spacing-sm;
+    padding-left: $spacing-6;
+    margin-top: $spacing-2;
 
     li {
-      margin-bottom: $spacing-xs;
+      margin-bottom: $spacing-1;
     }
   }
 }

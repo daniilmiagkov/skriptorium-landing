@@ -17,6 +17,13 @@
           >
             {{ link.text }}
           </router-link>
+          <router-link
+            to="/contact"
+            :class="[$style.button, $style.navLink]"
+          >
+            Оставить заявку
+          </router-link>
+          <- перенесет сразу к форме
         </nav>
       </div>
     </div>
@@ -33,10 +40,10 @@ const routes = [
     route: '/about',
     text: 'О проекте'
   },
-  {
-    route: '/features',
-    text: 'Возможности'
-  },
+  // {
+  //   route: '/features',
+  //   text: 'Возможности'
+  // },
   {
     route: '/technology',
     text: 'Технологии'
@@ -52,7 +59,7 @@ const routes = [
 .header {
   background-color: $bg-color;
   border-bottom: 1px solid $border-color;
-  padding: $spacing-md 0;
+  padding: $spacing-4 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -78,7 +85,8 @@ const routes = [
 
 .nav {
   display: flex;
-  gap: $spacing-lg;
+  gap: $spacing-8;
+  align-items: center;
 }
 
 .navLink {
@@ -98,7 +106,7 @@ const routes = [
     &::after {
       content: '';
       position: absolute;
-      bottom: -$spacing-xs;
+      bottom: -$spacing-1;
       left: 0;
       right: 0;
       height: 2px;
@@ -106,15 +114,28 @@ const routes = [
     }
   }
 }
+
+.button {
+  padding: $spacing-2 $spacing-4;
+  border-radius: 9999px;
+  color: white;
+  background-color: $primary-color;
+  transition: transform 0.25s ease;
+  &:hover {
+    transform: translate(3px, 3px);
+    color: white;
+  }
+}
+
 @media (max-width: $breakpoint-md) {
   .nav {
-    gap: $spacing-md;
+    gap: $spacing-4;
     flex-wrap: wrap;
   }
 
   .headerContent {
     flex-direction: column;
-    gap: $spacing-md;
+    gap: $spacing-4;
   }
 }
 </style>

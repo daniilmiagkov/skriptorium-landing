@@ -19,13 +19,13 @@ import Header from '@/components/Header.vue';
 <style module lang="scss">
 .main {
   flex: 1;
-  padding: $spacing-xl 0;
+  padding: $spacing-8 0;
 }
 
 .footer {
   background-color: $bg-light;
   border-top: 1px solid $border-color;
-  padding: $spacing-lg 0;
+  padding: $spacing-6 0;
   margin-top: auto;
   text-align: center;
   color: $text-light;

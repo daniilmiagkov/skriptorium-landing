@@ -132,7 +132,7 @@ const techSections = ref<TechSection[]>([
 .pageTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-8;
   text-align: center;
   color: $text-color;
 }
@@ -140,29 +140,29 @@ const techSections = ref<TechSection[]>([
 .techSections {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xl;
+  gap: $spacing-8;
 }
 
 .techSectionTitle {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-6;
   color: $primary-color;
   border-bottom: 2px solid $border-color;
-  padding-bottom: $spacing-sm;
+  padding-bottom: $spacing-2;
 }
 
 .techList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-md;
+  gap: $spacing-4;
 }
 
 .techItem {
   background: $bg-light;
   border: 1px solid $border-color;
   border-radius: 8px;
-  padding: $spacing-md;
+  padding: $spacing-4;
   transition: transform 0.2s, box-shadow 0.2s;
 
   &:hover {
@@ -174,7 +174,7 @@ const techSections = ref<TechSection[]>([
 .techItemName {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: $spacing-xs;
+  margin-bottom: $spacing-1;
   color: $text-color;
 }
 

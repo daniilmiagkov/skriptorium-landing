@@ -32,9 +32,9 @@ defineProps<{
   background: $bg-light;
   border: 1px solid $border-color;
   border-radius: 8px;
-  padding: $spacing-md;
+  padding: $spacing-4;
   text-align: center;
-  gap: $spacing-sm;
+  gap: $spacing-2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -42,7 +42,7 @@ defineProps<{
 
 .featureCardIcon {
   font-size: 3rem;
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-4;
 }
 
 .featureCardTitle {

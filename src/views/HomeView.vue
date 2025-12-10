@@ -1,13 +1,18 @@
 <template>
   <div :class="$style.home">
     <div class="container">
-      <section :class="$style.hero">
+      <!-- <section :class="$style.hero">
         <h1 :class="$style.heroTitle">Добро пожаловать в Skriptorium</h1>
         <p :class="$style.heroSubtitle">
           Современная платформа для управления медицинскими документами и верификацией персонала
         </p>
+      </section> -->
+      <!-- <section :class="$style.hero">
+        <h1> -- Здесь будет главная информация о проекте -- + оставить заявку</h1>
+        <p :class="$style.heroSubtitle">
+          Современная платформа для управления медицинскими документами и верификацией персонала
+        </p>
       </section>
-
       <section :class="$style.sections">
         <Card
           v-for="section in sections" 
@@ -16,7 +21,11 @@
           :link="section.link"
           :description="section.description"
         />
-      </section>
+      </section> -->
+      <p>здесь будет главная информация о проекте. посадочная страница</p>
+      <p>
+        + оставить заявку
+      </p>
     </div>
   </div>
 </template>
@@ -60,14 +69,14 @@ const sections = ref<Section[]>([
 
 .hero {
   text-align: center;
-  margin-bottom: $spacing-xl;
-  padding: $spacing-xl 0;
+  margin-bottom: $spacing-8;
+  padding: $spacing-8 0;
 }
 
 .heroTitle {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-4;
   color: $text-color;
 }
 
@@ -81,8 +90,8 @@ const sections = ref<Section[]>([
 .sections {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-lg;
-  margin-top: $spacing-xl;
+  gap: $spacing-6;
+  margin-top: $spacing-8;
 }
 
 @media (max-width: $breakpoint-md) {
