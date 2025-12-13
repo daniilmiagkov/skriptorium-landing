@@ -6,7 +6,7 @@
           to="/"
           :class="$style.logo"
         >
-          <h1>Skriptorium</h1>
+          <Logo />
         </router-link>
         <nav :class="$style.nav">
           <router-link
@@ -30,6 +30,7 @@
 <script lang="ts" setup>
 import ButtonCTA from './ButtonCTa.vue';
 import { useRouter } from 'vue-router'
+import Logo from '@/assets/icons/logo.svg'
 
 const router = useRouter()
 
