@@ -25,9 +25,7 @@
             >
 
             <!-- Просто визуальная замена на buttonCTA -->
-            <ButtonCTA>
-              Отправить
-            </ButtonCTA>
+            <ButtonCTA :class="$style.button" />
           </div>
 
           
@@ -52,7 +50,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ButtonCTA from './ButtonCTa.vue';
+import ButtonCTA from './ButtonCTa.vue'
+
 const emit = defineEmits<{
   submit: [phone: string]
 }>()
@@ -134,12 +133,11 @@ const formatPhone = (event: Event) => {
   phone.value = formatted
 }
 </script>
-
 <style module lang="scss">
 .formSection {
-  background: $primary-color; /* Заменяем градиент на сплошной цвет */
+  background: $primary-color;
   color: white;
-  padding: 80px 20px;
+  padding: 128px 20px;
   position: relative;
   overflow: hidden;
   border-radius: 64px;
@@ -159,9 +157,7 @@ const formatPhone = (event: Event) => {
 
 .headline {
   font-size: 36px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 40px;
+  font-weight: 600;
   color: white;
   
   @media (max-width: 768px) {
@@ -180,9 +176,11 @@ const formatPhone = (event: Event) => {
 
 .formGroup {
   display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-  
+  gap: 16px;          // расстояние между input и кнопкой
+  align-items: center;
+justify-content: center;
+
+
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 12px;
@@ -190,74 +188,40 @@ const formatPhone = (event: Event) => {
 }
 
 .input {
-  flex: 1;
-  padding: 16px 24px;
-  font-size: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  
+  width: fit-content;     
+  min-width: unset;       
+  flex: 0 0 auto;         
+  padding: 12px 32px;
+  font-size: 20px;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  width: 18ch;
+
   &::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: $text-muted;
   }
   
   &:focus {
     outline: none;
-    border-color: white;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-  }
-  
-  &:hover:not(:focus) {
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-  
-  @media (max-width: 768px) {
-    padding: 14px 20px;
-    font-size: 16px;
   }
 }
 
 .button {
-  padding: 16px 40px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #667eea;
-  background: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 140px;
-  
-  &:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  &:active:not(:disabled) {
-    transform: translateY(0);
-  }
-  
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 14px 32px;
-    font-size: 16px;
-    width: 100%;
-    min-width: auto;
-  }
+    font-size: 20px;
+
 }
+
+/* Альтернативный вариант с display: inline-block */
+/* .input {
+  display: inline-block;
+  min-width: 280px;
+  padding: 12px 32px;
+  font-size: 20px;
+  border-radius: 9999px;
+  background: $bg-color;
+  color: $text-muted;
+  font-family: $font-family-base;
+} */
 
 .loader {
   width: 20px;
@@ -306,4 +270,3 @@ const formatPhone = (event: Event) => {
   }
 }
 </style>
-/* Убраны декоративные элементы, связанные с градиентом */

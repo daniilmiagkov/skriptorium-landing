@@ -67,6 +67,7 @@ const handleClick = () => {
   border: none;
   border-radius: 9999px;
   cursor: pointer;
+  font-size: 16px;
   transition: all 0.25s ease;
   position: relative;
   padding: 16px 32px
