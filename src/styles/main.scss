@@ -1,8 +1,22 @@
 @use './reset.scss';
 @use './variables.scss' as *;
+@use './fonts';
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-soft;
+}
+
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $spacing-4;
+}
+
+html {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
 }

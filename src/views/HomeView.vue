@@ -1,65 +1,11 @@
 <template>
   <div :class="$style.home">
-    <div class="container">
-      <!-- <section :class="$style.hero">
-        <h1 :class="$style.heroTitle">Добро пожаловать в Skriptorium</h1>
-        <p :class="$style.heroSubtitle">
-          Современная платформа для управления медицинскими документами и верификацией персонала
-        </p>
-      </section> -->
-      <!-- <section :class="$style.hero">
-        <h1> -- Здесь будет главная информация о проекте -- + оставить заявку</h1>
-        <p :class="$style.heroSubtitle">
-          Современная платформа для управления медицинскими документами и верификацией персонала
-        </p>
-      </section>
-      <section :class="$style.sections">
-        <Card
-          v-for="section in sections" 
-          :key="section.id"
-          :title="section.title"
-          :link="section.link"
-          :description="section.description"
-        />
-      </section> -->
-      <p>здесь будет главная информация о проекте. посадочная страница</p>
-      <p>
-        + оставить заявку
-      </p>
-    </div>
+    <div class="container" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Card from "@/components/Card.vue"
-interface Section {
-  id: number
-  title: string
-  description: string
-  link: string
-}
 
-const sections = ref<Section[]>([
-  {
-    id: 1,
-    title: 'О проекте',
-    description: 'Узнайте больше о Skriptorium, его целях и миссии',
-    link: '/about'
-  },
-  {
-    id: 2,
-    title: 'Возможности',
-    description: 'Изучите все функции и возможности платформы',
-    link: '/features'
-  },
-  {
-    id: 3,
-    title: 'Технологии',
-    description: 'Познакомьтесь с технологическим стеком проекта',
-    link: '/technology'
-  }
-])
 </script>
 
 <style module lang="scss">
@@ -82,7 +28,7 @@ const sections = ref<Section[]>([
 
 .heroSubtitle {
   font-size: 1.25rem;
-  color: $text-light;
+  color: $text-muted;
   max-width: 800px;
   margin: 0 auto;
 }

@@ -56,13 +56,11 @@ const routes = [
 
 <style module lang="scss">
 .header {
-  background-color: $bg-color;
-  border-bottom: 1px solid $border-color;
+  background-color: $bg-soft;
   padding: $spacing-4 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .headerContent {
