@@ -23,7 +23,6 @@
           >
             Оставить заявку
           </router-link>
-          <- перенесет сразу к форме
         </nav>
       </div>
     </div>
@@ -46,7 +45,7 @@ const routes = [
   // },
   {
     route: '/technology',
-    text: 'Технологии'
+    text: 'Тарифы'
   },
   {
     route: '/contact',
