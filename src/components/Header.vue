@@ -17,12 +17,10 @@
           >
             {{ link.text }}
           </router-link>
-          <router-link
-            to="/contact"
-            :class="[$style.button, $style.navLink]"
-          >
-            Оставить заявку
-          </router-link>
+          <ButtonCTA
+            size="medium"
+            @click="scrollToForm"
+          />
         </nav>
       </div>
     </div>
@@ -30,6 +28,11 @@
 </template>
 
 <script lang="ts" setup>
+import ButtonCTA from './ButtonCTa.vue';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 const routes = [
   {
     route: '/',
@@ -52,6 +55,24 @@ const routes = [
     text: 'Контакты'
   }
 ]
+
+const scrollToForm = () => {
+  // Переходим на главную страницу с хэшем
+  router.push('/#contact-form')
+  
+  // Если уже на главной, скроллим к форме
+  if (router.currentRoute.value.path === '/') {
+    setTimeout(() => {
+      const formSection = document.getElementById('contact-form')
+      if (formSection) {
+        formSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }, 100)
+  }
+}
 </script>
 
 <style module lang="scss">

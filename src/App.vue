@@ -17,14 +17,8 @@ import Header from '@/components/Header.vue';
 <style module lang="scss">
 .main {
   // flex: 1;
-  padding: $spacing-8 0;
   background-color: $bg-soft;
-  font-family: $font-family-accent;
-  display: grid;
-  grid-template-columns: repeat(12, 96px);
-  gap: 32px;
-  padding: 0 auto;
-  margin: 0 auto;
+  font-family: $font-family-base;
 }
 
 
