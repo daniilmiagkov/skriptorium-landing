@@ -74,11 +74,13 @@ const selectedIndex = ref(2)
 
 <style module lang="scss">
 .header {
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: flex-start; /* title по центру */
   gap: 16px;
-}
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;}
 
 /* оставляем title как есть */
 .title {
@@ -86,32 +88,39 @@ const selectedIndex = ref(2)
   font-size: 4rem;
   font-weight: 700;
   text-align: center;
+  color: $primary-color;
+  margin-bottom: 60px;
 }
 
-/* контейнер выбора периода — выравниваем влево */
 .periodContainer {
-  max-width: 880px;
+  
   display: flex;
-  gap: 12px;
   align-items: center;
-  justify-content: flex-start; /* <-- слева */
+  justify-content: flex-start;
   background: #fff;
   border-radius: 999px;
+  width: 480px;
+  padding: 0 30px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25); /* ← тень */
 }
-
 /* Кнопки периода — без border */
 .periodButtons {
-  display: inline-flex;
+  display: flex;
   gap: 8px;
   align-items: center;
+  width: 480px;
+justify-content: space-between
+
+
 }
 
 .periodButton {
-  padding: 8px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
   border: none;
   background: transparent;
   font-weight: 600;
+  font-size: 20px;
   cursor: pointer;
   user-select: none;
   box-shadow: none;
@@ -132,6 +141,7 @@ const selectedIndex = ref(2)
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin-top: 24px;
+  
 }
 
 @media (max-width: 920px) {

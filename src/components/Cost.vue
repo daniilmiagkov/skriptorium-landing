@@ -55,6 +55,8 @@ defineProps<{
   flex-direction: column;
   justify-content: space-between;
   font-size: 1.25rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25); /* ← тень */
+
 }
 
 .featureCardTitle {
