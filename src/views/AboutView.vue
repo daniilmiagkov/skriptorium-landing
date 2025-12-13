@@ -1,14 +1,10 @@
 <template>
   <div :class="$style.about">
     <div class="container">
-      <p>
-        Здесь будет презентация, подробная информация
-      </p>
-
-      <!-- <article :class="$style.article">
-        <h1 :class="$style.articleTitle">О проекте Skriptorium</h1>
+      <article :class="$style.article">
+        <h1 :class="$style.pageTitle">В разработке</h1>
         
-        <section :class="$style.articleSection">
+        <!-- <section :class="$style.articleSection">
           <h2>Что такое Skriptorium?</h2>
           <p>
             Skriptorium — это современная веб-платформа, разработанная для управления медицинскими документами 
@@ -44,8 +40,8 @@
             больничных комплексов. Платформа будет полезна административному персоналу, HR-отделам и руководству 
             медицинских учреждений.
           </p>
-        </section>
-      </article> -->
+        </section> -->
+      </article>
     </div>
   </div>
 </template>
