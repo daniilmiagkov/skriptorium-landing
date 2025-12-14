@@ -32,7 +32,7 @@ import MessagesSVG from '@/assets/messages.svg' // SVG как компонент
 .title {
   margin: 0 auto 60px;  // 🔥 центрируем блок
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   text-align: center;
   color: $primary-color;
   width: 992px;
@@ -44,11 +44,11 @@ import MessagesSVG from '@/assets/messages.svg' // SVG как компонент
 .wrapper {
   display: flex;
   align-items: flex-start;
-  gap: 32px;
+  gap: $spacing-16;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 24px;
+    gap: $spacing-6;
   }
 }
 
@@ -68,7 +68,7 @@ import MessagesSVG from '@/assets/messages.svg' // SVG как компонент
 .messagesContainer {
   flex: 2;
   min-width: 200px;
-  padding-top: 150px;
+  padding-top: $spacing-20;
   max-width: 666px;
   display: flex;
   flex-direction: column;

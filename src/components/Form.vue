@@ -137,7 +137,7 @@ const formatPhone = (event: Event) => {
 .formSection {
   background: $primary-color;
   color: white;
-  padding: 128px 20px;
+  padding: $spacing-20 $spacing-5;
   position: relative;
   overflow: hidden;
   border-radius: 64px;
@@ -156,8 +156,8 @@ const formatPhone = (event: Event) => {
 }
 
 .headline {
-  font-size: 36px;
-  font-weight: 600;
+  font-size: 2.25rem;
+  font-weight: $font-weight-semibold;
   color: white;
   margin-bottom: 52px;
   
@@ -177,14 +177,14 @@ const formatPhone = (event: Event) => {
 
 .formGroup {
   display: flex;
-  gap: 16px;          // расстояние между input и кнопкой
+  gap: $spacing-4;          // расстояние между input и кнопкой
   align-items: center;
 justify-content: center;
 
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 12px;
+    gap: $spacing-3;
   }
 }
 
@@ -192,9 +192,9 @@ justify-content: center;
   width: fit-content;     
   min-width: unset;       
   flex: 0 0 auto;         
-  padding: 12px 32px;
-  font-size: 20px;
-  border-radius: 9999px;
+  padding: $spacing-3 $spacing-8;
+  font-size: 1.25rem;
+  border-radius: $border-radius-full;
   box-sizing: border-box;
   width: 18ch;
 
@@ -208,7 +208,7 @@ justify-content: center;
 }
 
 .button {
-    font-size: 20px;
+    font-size: $font-size-lg;
 
 }
 
@@ -241,10 +241,10 @@ justify-content: center;
 
 .success,
 .error {
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  margin-top: 16px;
+  padding: $spacing-3 $spacing-5;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-base;
+  margin-top: $spacing-4;
   animation: fadeIn 0.3s ease;
 }
 

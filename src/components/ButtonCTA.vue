@@ -27,27 +27,25 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
-  text?: string
-  size?: 'small' | 'medium' | 'large'
-  fullWidth?: boolean
-  isLoading?: boolean
-  disabled?: boolean
-}
+const props = withDefaults(
+  defineProps<{
+    text?: string
+    size?: 'small' | 'medium' | 'large'
+    fullWidth?: boolean
+    isLoading?: boolean
+    disabled?: boolean
+  }>(), {
+    text: 'Оставить заявку',
+    size: 'medium',
+    fullWidth: false,
+    isLoading: false,
+    disabled: false
+  }
+)
 
-interface Emits {
+const emit = defineEmits<{  
   (e: 'click'): void
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  text: 'Оставить заявку',
-  size: 'medium',
-  fullWidth: false,
-  isLoading: false,
-  disabled: false
-})
-
-const emit = defineEmits<Emits>()
+}>()
 
 const handleClick = () => {
   if (!props.disabled && !props.isLoading) {
@@ -61,16 +59,16 @@ const handleClick = () => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   color: white;
   background-color: $accent-color;
   border: none;
-  border-radius: 9999px;
+  border-radius: $border-radius-full;
   cursor: pointer;
-  font-size: 16px;
+  font-size: $font-size-base;
   transition: all 0.25s ease;
   position: relative;
-  padding: 16px 32px
+  padding: $spacing-4 $spacing-8;
 }
 
 .content {

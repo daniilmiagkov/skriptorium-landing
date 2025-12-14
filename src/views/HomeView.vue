@@ -38,7 +38,7 @@ const handleFormSubmit = (phone: string) => {
   display: grid;
 
   grid-template-columns: repeat(18, 96px);
-  gap: 32px;
+  gap: $spacing-8;
 
   justify-content: center;
   margin: 0 auto;
@@ -51,26 +51,26 @@ const handleFormSubmit = (phone: string) => {
 /* Title */
 .textBlockWrapper {
   grid-column: 3 / span 14;
-  margin-bottom: 500px;
+  margin-bottom: $spacing-20;
 }
 
 /* Screens */
 .imageMessagesWrapper {
   grid-column: 1 / span 18;
-  margin-top: 500px;
+  margin-top: $spacing-20;
 }
 
 /* Pricing */
 .pricingWrapper {
   grid-column: 5 / span 10;
-  margin-top: 200px;
+  margin-top: $spacing-20;
 
 }
 
 /* Form */
 .formWrapper {
-  margin-top: 200px;
-  margin-bottom: 200px;
+  margin-top: $spacing-20;
+  margin-bottom: $spacing-20;
 
   grid-column: 6 / span 8;
 }
@@ -81,16 +81,16 @@ const handleFormSubmit = (phone: string) => {
 @media (min-width: 1200px) {
   .home {
     grid-template-columns: repeat(18, 80px);
-    column-gap: 32px;
+    column-gap: $spacing-8;
     max-width: calc(80px * 18 + 32px * 17);
   }
 
   .textBlockWrapper {
-    margin-bottom: 200px;
+    margin-bottom: $spacing-20;
   }
 
   .imageMessagesWrapper {
-    margin-bottom: 200px;
+    margin-bottom: $spacing-20;
   }
 }
 
@@ -105,15 +105,15 @@ const handleFormSubmit = (phone: string) => {
   }
 
   .textBlockWrapper {
-    margin-bottom: 160px;
+    margin-bottom: $spacing-16;
   }
 
   .imageMessagesWrapper {
-    margin-bottom: 160px;
+    margin-bottom: $spacing-16;
   }
 
   .pricingWrapper {
-    margin-bottom: 120px;
+    margin-bottom: $spacing-12;
   }
 }
 
@@ -133,11 +133,11 @@ const handleFormSubmit = (phone: string) => {
   }
 
   .textBlockWrapper {
-    margin-bottom: 140px;
+    margin-bottom: $spacing-12;
   }
 
   .imageMessagesWrapper {
-    margin-bottom: 140px;
+    margin-bottom: $spacing-12;
   }
 }
 
@@ -147,8 +147,8 @@ const handleFormSubmit = (phone: string) => {
 @media (max-width: 768px) {
   .home {
     grid-template-columns: repeat(18, 1fr);
-    column-gap: 16px;
-    padding: 0 16px;
+    column-gap: $spacing-4;
+    padding: 0 $spacing-4;
     max-width: 100%;
   }
 
@@ -160,15 +160,15 @@ const handleFormSubmit = (phone: string) => {
   }
 
   .textBlockWrapper {
-    margin-bottom: 120px;
+    margin-bottom: $spacing-12;
   }
 
   .imageMessagesWrapper {
-    margin-bottom: 120px;
+    margin-bottom: $spacing-12;
   }
 
   .pricingWrapper {
-    margin-bottom: 100px;
+    margin-bottom: $spacing-10;
   }
 }
 
@@ -177,19 +177,19 @@ const handleFormSubmit = (phone: string) => {
 ===================== */
 @media (max-width: 480px) {
   .home {
-    padding: 0 12px;
+    padding: 0 $spacing-3;
   }
 
   .textBlockWrapper {
-    margin-bottom: 96px;
+    margin-bottom: $spacing-12;
   }
 
   .imageMessagesWrapper {
-    margin-bottom: 96px;
+    margin-bottom: $spacing-12;
   }
 
   .pricingWrapper {
-    margin-bottom: 80px;
+    margin-bottom: $spacing-10;
   }
 }
 </style>

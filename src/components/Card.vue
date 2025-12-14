@@ -31,7 +31,7 @@ defineProps<{
 .featureCard {
   background: $bg-light;
   border: 1px solid $border-color;
-  border-radius: 8px;
+  border-radius: $border-radius-sm;
   padding: $spacing-4;
   text-align: center;
   gap: $spacing-2;
@@ -41,13 +41,13 @@ defineProps<{
 }
 
 .featureCardIcon {
-  font-size: 3rem;
+  font-size: $font-size-4xl;
   margin-bottom: $spacing-4;
 }
 
 .featureCardTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
   color: $text-color;
 }
 
@@ -59,7 +59,7 @@ defineProps<{
 .sectionCardLink {
   color: $primary-color;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   transition: color 0.2s;
 
   &:hover {
