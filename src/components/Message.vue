@@ -8,12 +8,10 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
+defineProps<{
   number: number | string
   text?: string
-}
-
-defineProps<Props>()
+}>()
 </script>
 
 <style module lang="scss">
