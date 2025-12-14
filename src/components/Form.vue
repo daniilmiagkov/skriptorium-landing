@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ButtonCTA from './ButtonCTa.vue'
+import ButtonCTA from './ButtonCTA.vue'
 
 const emit = defineEmits<{
   submit: [phone: string]

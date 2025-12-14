@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import ButtonCTA from './ButtonCTa.vue';
+import ButtonCTA from './ButtonCTA.vue';
 import { useRouter } from 'vue-router'
 import Logo from '@/assets/icons/logo.svg'
 
