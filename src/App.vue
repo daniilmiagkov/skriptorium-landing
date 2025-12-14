@@ -21,8 +21,6 @@ import Header from '@/components/Header.vue';
   font-family: $font-family-base;
 }
 
-
-
 .footer {
   background-color: $bg-soft;
   padding: $spacing-6 0;
