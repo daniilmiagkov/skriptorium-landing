@@ -6,7 +6,7 @@
           to="/"
           :class="$style.logo"
         >
-          <h1>Skriptorium</h1>
+          <Logo />
         </router-link>
         <nav :class="$style.nav">
           <router-link
@@ -17,13 +17,10 @@
           >
             {{ link.text }}
           </router-link>
-          <router-link
-            to="/contact"
-            :class="[$style.button, $style.navLink]"
-          >
-            Оставить заявку
-          </router-link>
-          <- перенесет сразу к форме
+          <ButtonCTA
+            size="medium"
+            @click="scrollToForm"
+          />
         </nav>
       </div>
     </div>
@@ -31,6 +28,12 @@
 </template>
 
 <script lang="ts" setup>
+import ButtonCTA from './ButtonCTa.vue';
+import { useRouter } from 'vue-router'
+import Logo from '@/assets/icons/logo.svg'
+
+const router = useRouter()
+
 const routes = [
   {
     route: '/',
@@ -46,24 +49,40 @@ const routes = [
   // },
   {
     route: '/technology',
-    text: 'Технологии'
+    text: 'Тарифы'
   },
   {
     route: '/contact',
     text: 'Контакты'
   }
 ]
+
+const scrollToForm = () => {
+  // Переходим на главную страницу с хэшем
+  router.push('/')
+  
+  // Если уже на главной, скроллим к форме
+  if (router.currentRoute.value.path === '/') {
+    setTimeout(() => {
+      const formSection = document.getElementById('contact-form')
+      if (formSection) {
+        formSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }, 100)
+  }
+}
 </script>
 
 <style module lang="scss">
 .header {
-  background-color: $bg-color;
-  border-bottom: 1px solid $border-color;
+  background-color: $bg-soft;
   padding: $spacing-4 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .headerContent {
