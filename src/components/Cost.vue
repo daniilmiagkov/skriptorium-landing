@@ -48,20 +48,20 @@ defineProps<{
 /* --- стили компонента --- */
 .featureCard {
   background: $bg-color;
-  border-radius: 32px;
-  padding: 32px 64px;
+  border-radius: $border-radius-md;
+  padding: $spacing-12 $spacing-16;
   gap: $spacing-2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 1.25rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25); /* ← тень */
+  font-size: $font-size-lg;
+    box-shadow: $shadow-md;
 
 }
 
 .featureCardTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
   color: $primary-color;
   margin: 0 0 $spacing-2 0;
 }
@@ -77,7 +77,7 @@ defineProps<{
 
 .featureCardCost {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   color: $primary-color;
   margin: 0;
 }
@@ -91,10 +91,10 @@ defineProps<{
   background: $accent-color;
   color: white;
   border: none;
-  border-radius: 54px;
-  padding: 16px 48px;
-  font-weight: 600;
-  font-size: 1.25rem;
+  border-radius: $border-radius-lg;
+  padding: $spacing-4 $spacing-12;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
   font-family: $font-family-base;
 }
 
@@ -102,15 +102,15 @@ defineProps<{
   margin-top: $spacing-4;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: $spacing-3;
   color: $primary-color;
 }
 
 .featureCardItem {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1.25rem;
+  gap: $spacing-3;
+  font-size: $font-size-lg;
   color: $text-color;
     color: $primary-color;
 

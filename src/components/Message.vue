@@ -19,13 +19,13 @@ defineProps<Props>()
 <style module lang="scss">
 .messageCard {
   position: relative;
-  padding: 24px 20px 20px 20px;
-  background: #fff;
+  padding: $spacing-6 $spacing-5 $spacing-5 $spacing-5;
+  background: $bg-color;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: $spacing-2;
 }
 
 .badge {
@@ -37,15 +37,15 @@ defineProps<Props>()
   border-radius: 50%;
   background-color: #667eea; /* основной цвет */
   color: white;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: $font-size-base;
 }
 
 .text {
-  font-size: 16px;
+  font-size: $font-size-base;
   color: #333;
   line-height: 1.5;
 }

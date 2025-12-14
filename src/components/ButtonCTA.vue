@@ -61,16 +61,16 @@ const handleClick = () => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   color: white;
   background-color: $accent-color;
   border: none;
-  border-radius: 9999px;
+  border-radius: $border-radius-full;
   cursor: pointer;
-  font-size: 16px;
+  font-size: $font-size-base;
   transition: all 0.25s ease;
   position: relative;
-  padding: 16px 32px
+  padding: $spacing-4 $spacing-8;
 }
 
 .content {

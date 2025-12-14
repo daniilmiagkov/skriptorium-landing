@@ -96,8 +96,8 @@ const scrollToForm = () => {
   color: $text-color;
 
   h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
     color: $primary-color;
   }
 }
@@ -111,7 +111,7 @@ const scrollToForm = () => {
 .navLink {
   text-decoration: none;
   color: $text-color;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   transition: color 0.2s;
   position: relative;
 
@@ -136,7 +136,7 @@ const scrollToForm = () => {
 
 .button {
   padding: $spacing-2 $spacing-4;
-  border-radius: 9999px;
+  border-radius: $border-radius-full;
   color: white;
   background-color: $primary-color;
   transition: transform 0.25s ease;

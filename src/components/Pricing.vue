@@ -77,16 +77,16 @@ const selectedIndex = ref(2)
   display: grid;
   flex-direction: column;
   align-items: flex-start; /* title по центру */
-  gap: 16px;
+  gap: $spacing-4;
   width: 100%;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;}
+  gap: $spacing-8;}
 
 /* оставляем title как есть */
 .title {
   margin: 0;
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   text-align: center;
   color: $primary-color;
   margin-bottom: 60px;
@@ -97,11 +97,11 @@ const selectedIndex = ref(2)
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: #fff;
-  border-radius: 999px;
+  background: $bg-color;
+  border-radius: $border-radius-full;
   max-width: 420px;
   padding: 0 0px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25); /* ← тень */
+  box-shadow: $shadow-md; /* ← тень */
 }
 /* Кнопки периода — без border */
 .periodButtons {
@@ -114,12 +114,12 @@ justify-content: space-between
 }
 
 .periodButton {
-  padding: 8px 20px;
-  border-radius: 999px;
+  padding: $spacing-2 $spacing-5;
+  border-radius: $border-radius-full;
   border: none;
   background: transparent;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
   cursor: pointer;
   user-select: none;
   box-shadow: none;
@@ -129,7 +129,7 @@ justify-content: space-between
 
 .periodButtonActive {
   background: $accent-color;
-  color: #ffffff;
+  color: $text-inverse;
   box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
 }
 
@@ -138,15 +138,15 @@ justify-content: space-between
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  margin-top: 24px;
+  gap: $spacing-8;
+  margin-top: $spacing-6;
   
 }
 
 @media (max-width: 920px) {
   .featureCardCosts {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: $spacing-5;
   }
 
   .periodButtons {
