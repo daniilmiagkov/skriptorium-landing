@@ -99,14 +99,13 @@ const selectedIndex = ref(2)
   justify-content: flex-start;
   background: #fff;
   border-radius: 999px;
-  width: 480px;
-  padding: 0 30px;
+  max-width: 420px;
+  padding: 0 0px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.25); /* ← тень */
 }
 /* Кнопки периода — без border */
 .periodButtons {
   display: flex;
-  gap: 8px;
   align-items: center;
   width: 480px;
 justify-content: space-between
@@ -115,7 +114,7 @@ justify-content: space-between
 }
 
 .periodButton {
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 999px;
   border: none;
   background: transparent;

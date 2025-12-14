@@ -159,6 +159,7 @@ const formatPhone = (event: Event) => {
   font-size: 36px;
   font-weight: 600;
   color: white;
+  margin-bottom: 52px;
   
   @media (max-width: 768px) {
     font-size: 28px;

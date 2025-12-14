@@ -59,7 +59,7 @@ const routes = [
 
 const scrollToForm = () => {
   // Переходим на главную страницу с хэшем
-  router.push('/#contact-form')
+  router.push('/')
   
   // Если уже на главной, скроллим к форме
   if (router.currentRoute.value.path === '/') {
