@@ -1,10 +1,13 @@
 <template>
   <header :class="$style.header">
-    <div
-      v-if="isMounted && menuCollapsed"
-      :class="$style.headerContent"
-    >
-      <DropdownMenu :items="dropdownItems" />
+    <div :class="$style.headerContent">
+      <ClientOnly>
+        <DropdownMenu
+          v-if="isMobile"
+          :items="dropdownItems"
+        />
+      </ClientOnly>
+
       <router-link
         to="/"
         :class="$style.logo"
@@ -12,24 +15,10 @@
         <Logo />
       </router-link>
 
-      <nav :class="$style.nav">
-        <ButtonCTA
-          size="medium"
-          @click="() => router.push({path: '/', hash: '#contact-form'})"
-        />
-      </nav>
-    </div>
-    <div
-      v-else-if="!isMounted || !menuCollapsed"
-      :class="$style.headerContent"
-    >
-      <router-link
-        to="/"
-        :class="$style.logo"
+      <nav
+        v-if="!isMobile"
+        :class="$style.nav"
       >
-        <Logo />
-      </router-link>
-      <nav :class="$style.nav">
         <router-link
           v-for="link in menuItems"
           :key="link.label"
@@ -38,31 +27,32 @@
         >
           {{ link.label }}
         </router-link>
-
-        <ButtonCTA
-          size="medium"
-          @click="() => router.push({path: '/', hash: '#contact-form'})"
-        />
       </nav>
+
+      <ButtonCTA
+        size="medium"
+        class="$style.ctaButton"
+        @click="goContact"
+      />
     </div>
   </header>
 </template>
 
 <script lang="ts" setup>
-import ButtonCTA from './ButtonCTA.vue';
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import ButtonCTA from './ButtonCTA.vue'
+import DropdownMenu from './DropdownMenu.vue'
 import Logo from '@/assets/icons/logo.svg'
-import { computed, ref, onMounted } from 'vue';
-// import BurgerClassic from "@/assets/icons/burger-classic.svg"
-import DropdownMenu from './DropdownMenu.vue';
-import { useWindowSize } from '@vueuse/core';
+import { useWindowSize } from '@vueuse/core'
+
 const router = useRouter()
 const {width} = useWindowSize()
 const isMounted = ref(false)
 onMounted(() => {
   isMounted.value = true
 })
-const menuCollapsed = computed(() => isMounted.value && width.value <= 1200)
+const isMobile = computed(() => isMounted.value && width.value <= 1200)
 
 const menuItems = [
   { label: 'Главная', to: '/' },
@@ -77,6 +67,10 @@ const dropdownItems = computed(() =>
     action: () => router.push(item.to)
   }))
 )
+
+function goContact() {
+  router.push({ path: '/', hash: '#contact-form' })
+}
 </script>
 
 <style module lang="scss">
@@ -137,27 +131,7 @@ const dropdownItems = computed(() =>
   }
 }
 
-.button {
-  padding: $spacing-2 $spacing-4;
-  border-radius: $border-radius-full;
-  color: white;
-  background-color: $primary-color;
-  transition: transform 0.25s ease;
-  &:hover {
-    transform: translate(3px, 3px);
-    color: white;
-  }
-}
-
-@media (max-width: $breakpoint-md) {
-  .nav {
-    gap: $spacing-4;
-    flex-wrap: wrap;
-  }
-
-  .headerContent {
-    flex-direction: column;
-    gap: $spacing-4;
-  }
+.ctaButton {
+  margin-left: auto; /* справа */
 }
 </style>
