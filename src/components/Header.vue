@@ -1,28 +1,49 @@
 <template>
   <header :class="$style.header">
-    <div class="container">
-      <div :class="$style.headerContent">
+    <div
+      v-if="menuCollapsed"
+      :class="$style.headerContent"
+    >
+      <DropdownMenu :items="dropdownItems" />
+      <router-link
+        to="/"
+        :class="$style.logo"
+      >
+        <Logo />
+      </router-link>
+
+      <nav :class="$style.nav">
+        <ButtonCTA
+          size="medium"
+          @click="() => router.push({path: '/', hash: '#contact-form'})"
+        />
+      </nav>
+    </div>
+    <div
+      v-else
+      :class="$style.headerContent"
+    >
+      <router-link
+        to="/"
+        :class="$style.logo"
+      >
+        <Logo />
+      </router-link>
+      <nav :class="$style.nav">
         <router-link
-          to="/"
-          :class="$style.logo"
+          v-for="link in menuItems"
+          :key="link.label"
+          :to="link.to"
+          :class="$style.navLink"
         >
-          <Logo />
+          {{ link.label }}
         </router-link>
-        <nav :class="$style.nav">
-          <router-link
-            v-for="link in routes"
-            :key="link.route"
-            :to="link.route"
-            :class="$style.navLink"
-          >
-            {{ link.text }}
-          </router-link>
-          <ButtonCTA
-            size="medium"
-            @click="scrollToForm"
-          />
-        </nav>
-      </div>
+
+        <ButtonCTA
+          size="medium"
+          @click="() => router.push({path: '/', hash: '#contact-form'})"
+        />
+      </nav>
     </div>
   </header>
 </template>
@@ -31,49 +52,38 @@
 import ButtonCTA from './ButtonCTA.vue';
 import { useRouter } from 'vue-router'
 import Logo from '@/assets/icons/logo.svg'
-
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+// import BurgerClassic from "@/assets/icons/burger-classic.svg"
+import DropdownMenu from './DropdownMenu.vue';
 const router = useRouter()
 
-const routes = [
-  {
-    route: '/',
-    text: 'Главная'
-  },
-  {
-    route: '/about',
-    text: 'О проекте'
-  },
-  // {
-  //   route: '/features',
-  //   text: 'Возможности'
-  // },
-  {
-    route: '/technology',
-    text: 'Тарифы'
-  },
-  {
-    route: '/contact',
-    text: 'Контакты'
-  }
+const menuCollapsed = ref(window.innerWidth <= 1200)
+
+const menuItems = [
+  { label: 'Главная', to: '/' },
+  { label: 'О проекте', to: '/about' },
+  { label: 'Тарифы', to: '/pricing' },
+  { label: 'Контакты', to: '/contact' }
 ]
 
-const scrollToForm = () => {
-  // Переходим на главную страницу с хэшем
-  router.push('/')
-  
-  // Если уже на главной, скроллим к форме
-  if (router.currentRoute.value.path === '/') {
-    setTimeout(() => {
-      const formSection = document.getElementById('contact-form')
-      if (formSection) {
-        formSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        })
-      }
-    }, 100)
-  }
+const dropdownItems = computed(() =>
+  menuItems.map(item => ({
+    label: item.label,
+    action: () => router.push(item.to)
+  }))
+)
+
+function onResize() {
+  menuCollapsed.value = window.innerWidth <= 800
 }
+
+onMounted(() => {
+  window.addEventListener('resize', onResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', onResize)
+})
 </script>
 
 <style module lang="scss">
