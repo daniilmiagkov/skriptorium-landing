@@ -1,7 +1,7 @@
 <template>
   <header :class="$style.header">
     <div
-      v-if="menuCollapsed"
+      v-if="isMounted && menuCollapsed"
       :class="$style.headerContent"
     >
       <DropdownMenu :items="dropdownItems" />
@@ -20,7 +20,7 @@
       </nav>
     </div>
     <div
-      v-else
+      v-else-if="!isMounted || !menuCollapsed"
       :class="$style.headerContent"
     >
       <router-link
@@ -52,12 +52,17 @@
 import ButtonCTA from './ButtonCTA.vue';
 import { useRouter } from 'vue-router'
 import Logo from '@/assets/icons/logo.svg'
-import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 // import BurgerClassic from "@/assets/icons/burger-classic.svg"
 import DropdownMenu from './DropdownMenu.vue';
+import { useWindowSize } from '@vueuse/core';
 const router = useRouter()
-
-const menuCollapsed = ref(window.innerWidth <= 1200)
+const {width} = useWindowSize()
+const isMounted = ref(false)
+onMounted(() => {
+  isMounted.value = true
+})
+const menuCollapsed = computed(() => isMounted.value && width.value <= 1200)
 
 const menuItems = [
   { label: 'Главная', to: '/' },
@@ -72,18 +77,6 @@ const dropdownItems = computed(() =>
     action: () => router.push(item.to)
   }))
 )
-
-function onResize() {
-  menuCollapsed.value = window.innerWidth <= 800
-}
-
-onMounted(() => {
-  window.addEventListener('resize', onResize)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', onResize)
-})
 </script>
 
 <style module lang="scss">

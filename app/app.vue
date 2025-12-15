@@ -1,12 +1,11 @@
 <template>
   <Header />
-  <main :class="$style.main">
-    <router-view />
-  </main>
+  <NuxtRouteAnnouncer />
+  <div :class="$style.main">
+    <NuxtPage />
+  </div>
   <footer :class="$style.footer">
-    <div class="container">
-      <p>&copy; 2025 Skriptorium</p>
-    </div>
+    <p>&copy; 2025 Skriptorium</p>
   </footer>
 </template>
 
@@ -29,4 +28,3 @@ import Header from '@/components/Header.vue';
   color: $text-muted;
 }
 </style>
-
