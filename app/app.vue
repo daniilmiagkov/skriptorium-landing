@@ -11,6 +11,11 @@
 
 <script setup lang="ts">
 import Header from '@/components/Header.vue';
+
+useHead({
+  titleTemplate: (title) => 
+    title ? `${title} Skriptorium` : 'Skriptorium'
+})
 </script>
 
 <style module lang="scss">
