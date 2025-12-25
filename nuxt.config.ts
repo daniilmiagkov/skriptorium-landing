@@ -20,4 +20,8 @@ export default defineNuxtConfig({
     },
     plugins: [svgLoader()],
   },
+  devServer: {
+    host: '0.0.0.0', // Разрешить доступ из локальной сети
+    port: 3000,
+  },
 });
