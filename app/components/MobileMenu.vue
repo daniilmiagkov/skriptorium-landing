@@ -1,7 +1,10 @@
 <template>
   <Dialog :variant="'fullscreen'">
     <template #trigger>
-      <Icon icon="lucide:menu" />
+      <Icon
+        icon="lucide:menu"
+        :class="$style.menuIcon"
+      />
     </template>
     <nav :class="$style.nav">
       <DialogClose
@@ -34,5 +37,10 @@ defineProps<{
   align-items: center;
   justify-content: center;
   height: 100%;;
+}
+
+.menuIcon {
+  width: 24px;
+  height: 24px;
 }
 </style>
