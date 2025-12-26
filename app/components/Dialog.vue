@@ -153,8 +153,8 @@ input {
   justify-content: center;
   color: $text-color;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: $spacing-4;
+  right: $spacing-4;
   cursor: pointer;
 }
 
