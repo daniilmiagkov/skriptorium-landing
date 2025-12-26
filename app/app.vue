@@ -1,17 +1,21 @@
 <template>
   <Header />
-  <main :class="$style.main">
-    <router-view />
-  </main>
+  <NuxtRouteAnnouncer />
+  <div :class="$style.main">
+    <NuxtPage />
+  </div>
   <footer :class="$style.footer">
-    <div class="container">
-      <p>&copy; 2025 Skriptorium</p>
-    </div>
+    <p>&copy; 2025 Skriptorium</p>
   </footer>
 </template>
 
 <script setup lang="ts">
 import Header from '@/components/Header.vue';
+
+useHead({
+  titleTemplate: (title) => 
+    title ? `${title} Skriptorium` : 'Skriptorium'
+})
 </script>
 
 <style module lang="scss">
@@ -21,8 +25,6 @@ import Header from '@/components/Header.vue';
   font-family: $font-family-base;
 }
 
-
-
 .footer {
   background-color: $bg-soft;
   padding: $spacing-6 0;
@@ -31,4 +33,3 @@ import Header from '@/components/Header.vue';
   color: $text-muted;
 }
 </style>
-
