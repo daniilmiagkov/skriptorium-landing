@@ -2,7 +2,7 @@
   <Dialog :variant="'fullscreen'">
     <template #trigger>
       <Icon
-        icon="lucide:menu"
+        icon="lucide:text-align-justify"
         :class="$style.menuIcon"
       />
     </template>
