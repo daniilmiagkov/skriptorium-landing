@@ -2,9 +2,9 @@
   <header :class="$style.header">
     <div :class="$style.headerContent">
       <ClientOnly>
-        <DropdownMenu
+        <MobileMenu
           v-if="isMobile"
-          :items="dropdownItems"
+          :menu-items="menuItems"
         />
       </ClientOnly>
 
@@ -19,14 +19,11 @@
         v-if="!isMobile"
         :class="$style.nav"
       >
-        <router-link
-          v-for="link in menuItems"
-          :key="link.label"
-          :to="link.to"
-          :class="$style.navLink"
-        >
-          {{ link.label }}
-        </router-link>
+        <NavElement
+          v-for="menuItem in menuItems"
+          :key="menuItem.label"
+          :menu-item="menuItem"
+        />
       </nav>
 
       <ButtonCTA
@@ -42,17 +39,24 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import ButtonCTA from './ButtonCTA.vue'
-import DropdownMenu from './DropdownMenu.vue'
 import Logo from '@/assets/icons/logo.svg'
 import { useWindowSize } from '@vueuse/core'
+import MobileMenu from './MobileMenu.vue'
+import NavElement from './NavElement.vue'
 
 const router = useRouter()
 const {width} = useWindowSize()
 const isMounted = ref(false)
+
+export type MenuItem = {
+  to: string
+  label: string
+}
+
 onMounted(() => {
   isMounted.value = true
 })
-const isMobile = computed(() => isMounted.value && width.value <= 1200)
+const isMobile = computed(() => isMounted.value && width.value <= 900)
 
 const menuItems = [
   { label: 'Главная', to: '/' },
@@ -60,13 +64,6 @@ const menuItems = [
   { label: 'Тарифы', to: '/pricing' },
   { label: 'Контакты', to: '/contact' }
 ]
-
-const dropdownItems = computed(() =>
-  menuItems.map(item => ({
-    label: item.label,
-    action: () => router.push(item.to)
-  }))
-)
 
 function goContact() {
   router.push({ path: '/', hash: '#contact-form' })
@@ -79,7 +76,7 @@ function goContact() {
   padding: $spacing-4 0;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9;
 }
 
 .headerContent {
@@ -103,32 +100,6 @@ function goContact() {
   display: flex;
   gap: $spacing-8;
   align-items: center;
-}
-
-.navLink {
-  text-decoration: none;
-  color: $text-color;
-  font-weight: $font-weight-medium;
-  transition: color 0.2s;
-  position: relative;
-
-  &:hover {
-    color: $primary-color;
-  }
-
-  &.router-link-active {
-    color: $primary-color;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -$spacing-1;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: $primary-color;
-    }
-  }
 }
 
 .ctaButton {

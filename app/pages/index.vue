@@ -49,8 +49,8 @@ const handleFormSubmit = (phone: string) => {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $spacing-6;
-  padding-right: $spacing-6;
+  // padding-left: $spacing-6;
+  // padding-right: $spacing-6;
 }
 
 /* =====================
