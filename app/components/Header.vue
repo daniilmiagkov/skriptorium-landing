@@ -1,37 +1,36 @@
 <template>
   <header :class="$style.header">
-    <div :class="$style.headerContent">
-      <ClientOnly>
-        <MobileMenu
-          v-if="isMobile"
-          :menu-items="menuItems"
-        />
-      </ClientOnly>
-
-      <router-link
-        to="/"
-        :class="$style.logo"
-      >
-        <Logo />
-      </router-link>
-
-      <nav
-        v-if="!isMobile"
-        :class="$style.nav"
-      >
-        <NavElement
-          v-for="menuItem in menuItems"
-          :key="menuItem.label"
-          :menu-item="menuItem"
-        />
-      </nav>
-
-      <ButtonCTA
-        size="medium"
-        class="$style.ctaButton"
-        @click="goContact"
+    <ClientOnly>
+      <MobileMenu
+        v-if="isMobile"
+        :menu-items="menuItems"
       />
-    </div>
+    </ClientOnly>
+
+    <router-link
+      to="/"
+      :class="$style.logo"
+    >
+      <Logo />
+    </router-link>
+
+    <nav
+      v-if="!isMobile"
+      :class="$style.nav"
+    >
+      <NavElement
+        v-for="menuItem in menuItems"
+        :key="menuItem.label"
+        :menu-item="menuItem"
+      />
+    </nav>
+
+    <ButtonCTA
+      v-if="!isMobile"
+      size="medium"
+      class="$style.ctaButton"
+      @click="goContact"
+    />
   </header>
 </template>
 
@@ -77,12 +76,10 @@ function goContact() {
   position: sticky;
   top: 0;
   z-index: 9;
-}
-
-.headerContent {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 30px 1fr 30px;
   align-items: center;
+  justify-items: center;
 }
 
 .logo {
