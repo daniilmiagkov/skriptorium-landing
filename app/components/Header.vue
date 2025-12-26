@@ -77,20 +77,17 @@ function goContact() {
   top: 0;
   z-index: 9;
   display: grid;
-  grid-template-columns: 30px 1fr 30px;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-items: center;
+  justify-items: stretch;
+  padding: $spacing-4;
 }
 
 .logo {
   text-decoration: none;
   color: $text-color;
-
-  h1 {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $primary-color;
-  }
+  display: flex;
+  justify-content: center;
 }
 
 .nav {
