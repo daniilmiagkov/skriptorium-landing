@@ -59,7 +59,7 @@ const handleFormSubmit = (phone: string) => {
 
 /* Title */
 .textBlockWrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   margin-top: $spacing-20;
   margin-bottom: $spacing-20;
 }
