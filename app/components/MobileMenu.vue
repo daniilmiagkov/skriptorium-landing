@@ -36,7 +36,12 @@ defineProps<{
   gap: $spacing-4;
   align-items: center;
   justify-content: center;
-  height: 100%;;
+  height: 100%;
+  font-size: $font-size-lg;
+
+  @media (max-width: 764px) {
+    font-size: $font-size-base;
+  }
 }
 
 .menuIcon {
