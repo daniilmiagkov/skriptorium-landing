@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div :class="$style.container">
     <h1 :class="$style.title">
       Систематизируйте знания 
       в удобных шаблонах
     </h1>
 
     <div :class="$style.wrapper">
-      <!-- Слева PNG -->
       <div :class="$style.imageContainer">
         <img
           :src="screensImg"
@@ -14,29 +13,41 @@
         >
       </div>
 
-      <!-- Справа SVG -->
-      <div :class="$style.messagesContainer">
-        <MessagesSVG />
-      </div>
+      <div :class="$style.messagesContainer" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import screensImg from '@/assets/screens.png'   // PNG
-import MessagesSVG from '@/assets/messages.svg' // SVG как компонент
 </script>
 
 <style module lang="scss">
-/* ===== TITLE (1:1 как в тарифах) ===== */
+// .container {
+//   display: flex;
+
+// }
+
 .title {
-  margin: 0 auto 60px;  // 🔥 центрируем блок
-  font-size: 4rem;
-  font-weight: $font-weight-bold;
+  margin: 0 auto;
   text-align: center;
   color: $primary-color;
-  width: 992px;
-  max-width: 100%;
+  max-width: 992px;
+  font-size: 4rem;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+
+  @media (max-width: 1600px) {
+    font-size: $font-size-4xl;
+  }
+
+  @media (max-width: 1100px) {
+    font-size: $font-size-3xl;
+  }
+
+  @media (max-width: 900px) {
+    font-size: $font-size-2xl;
+  }
 }
 
 
@@ -54,7 +65,7 @@ import MessagesSVG from '@/assets/messages.svg' // SVG как компонент
 
 .imageContainer {
   flex: 1;
-  min-width: 1071px;
+  max-width: 1071px;
   display: flex;
   justify-content: center;
   align-items: center;
