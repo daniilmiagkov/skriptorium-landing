@@ -75,13 +75,13 @@ function goContact() {
   position: sticky;
   top: 0;
   z-index: 9;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  justify-items: stretch;
+  justify-content: space-between;
   padding: $spacing-4;
 
   @media (max-width: 900px) {
+    display: grid;
       grid-template-columns: 1fr 1fr 1fr;
   }
 }
