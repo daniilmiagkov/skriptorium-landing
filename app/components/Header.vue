@@ -23,14 +23,13 @@
         :key="menuItem.label"
         :menu-item="menuItem"
       />
+      <ButtonCTA
+        v-if="!isMobile"
+        size="medium"
+        class="$style.ctaButton"
+        @click="goContact"
+      />
     </nav>
-
-    <ButtonCTA
-      v-if="!isMobile"
-      size="medium"
-      class="$style.ctaButton"
-      @click="goContact"
-    />
   </header>
 </template>
 
@@ -77,23 +76,31 @@ function goContact() {
   top: 0;
   z-index: 9;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: stretch;
   padding: $spacing-4;
+
+  @media (max-width: 900px) {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .logo {
   text-decoration: none;
   color: $text-color;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
 }
 
 .nav {
   display: flex;
   gap: $spacing-8;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .ctaButton {
