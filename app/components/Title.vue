@@ -26,23 +26,14 @@
 <style module lang="scss">
 .outerContainer {
   position: relative;
-  padding-top: 25rem;
+  padding-top: 38vh;
   display: flex;
   align-items: center;
   color: $primary-color;
   width: fit-content;
   margin: 0 auto;
 
-  @media (max-width: 1600px) {
-    padding-top: 20rem;
-  }
-
-  @media (max-width: 1100px) {
-    padding-top: 16rem;
-  }
-
   @media (max-width: 900px) {
-    padding-top: 12rem;
     flex-direction: column;
     gap: 1.25rem;
     text-align: center;
