@@ -55,10 +55,10 @@ import Message from './Message.vue'
   @media (max-width: 610px) {
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas: 
-      "a a a a a a . ."
+      "a a a a a a a ."
       ". b b b b b b b"
       "c c c c c c c ."
-      ". . d d d d d .";
+      ". . d d d d d d";
   }
 }
 
