@@ -2,9 +2,7 @@
   <div :class="$style.featureCard">
     <h1 :class="$style.title">Тарифы</h1>
 
-    <!-- Заголовок и выбор периода -->
     <header :class="$style.header">
-      <!-- Выбор периода слева -->
       <div :class="$style.periodContainer">
         <div :class="$style.periodButtons">
           <button
@@ -19,20 +17,17 @@
           </button>
         </div>
       </div>
-
-      <!-- Заголовок по центру -->
     </header>
 
-    <!-- Сами карточки тарифов -->
     <div :class="$style.featureCardCosts">
-      <Cost
+      <CostCard
         title="Базовый"
         description="Быстрый старт для отделения с хорошей базой и шаблонами"
         :price="319"
         :features="basicFeatures"
       />
 
-      <Cost
+      <CostCard
         title="Pro"
         description="Масимум возможностей с ИИ и персональной поддержкой"
         :price="549"
@@ -44,7 +39,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Cost, { FeatureItem } from './Cost.vue'
+import CostCard, { type FeatureItem } from './CostCard.vue'
 
 const basicFeatures: FeatureItem[] = [
   { text: 'Базовый набор шаблонов' },
@@ -76,13 +71,12 @@ const selectedIndex = ref(2)
 .header {
   display: grid;
   flex-direction: column;
-  align-items: flex-start; /* title по центру */
+  align-items: flex-start;
   gap: $spacing-4;
   width: 100%;
   grid-template-columns: 1fr 1fr;
   gap: $spacing-8;}
 
-/* оставляем title как есть */
 .title {
   margin: 0;
   font-size: 4rem;
@@ -93,7 +87,6 @@ const selectedIndex = ref(2)
 }
 
 .periodContainer {
-  
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -101,16 +94,13 @@ const selectedIndex = ref(2)
   border-radius: $border-radius-full;
   max-width: 420px;
   padding: 0 0px;
-  box-shadow: $shadow-md; /* ← тень */
+  box-shadow: $shadow-md; 
 }
-/* Кнопки периода — без border */
 .periodButtons {
   display: flex;
   align-items: center;
   width: 480px;
-justify-content: space-between
-
-
+  justify-content: space-between
 }
 
 .periodButton {
@@ -133,7 +123,6 @@ justify-content: space-between
   box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
 }
 
-/* --- Карточки тарифов (сетку оставил как было, адаптив) --- */
 .featureCardCosts {
   width: 100%;
   display: grid;
