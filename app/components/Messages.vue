@@ -1,48 +1,80 @@
 <template>
   <div :class="$style.messagesWrapper">
     <Message
-      v-for="(msg, index) in messages"
-      :key="index"
-      :number="`0${index + 1}`"
-      :variant="index === messages.length - 1 ? 'accent' : 'default'"
-      :text="msg"
+      :class="$style.card1"
+      number="01"
+      text="Унификация и систематизация информации организации"
+    />
+    <Message
+      :class="$style.card2"
+      number="02"
+      text="Сокращается время на поиск информации сотрудником, улучшается выполнение поставленных задач"
+    />
+    <Message
+      :class="$style.card3"
+      number="03"
+      text="Повышается скорость адаптации и эффективность труда, сокращается число ошибок и время приёма"
+    />
+    <Message
+      :class="$style.card4"
+      number="04"
+      variant="accent"
+      text="Больница теряет меньше сотрудников и средств"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import Message from './Message.vue'
-
-const messages = [
-  'Унификация и систематизация информации организации',
-  'Сокращается время на поиск информации сотрудником, улучшается выполнение поставленных задач',
-  'Повышается скорость адаптации и эффективность труда, сокращается число ошибок и время приёма',
-  'Больница теряет меньше сотрудников и средств'
-]
 </script>
 
 <style module lang="scss">
 .messagesWrapper {
   display: grid;
-  flex-direction: column;
   row-gap: 32px;
   grid-template-columns: repeat(8, 1fr);
   height: fit-content;
+  width: 100%;
+  padding: 0 $spacing-5;
+  grid-template-areas:  
+    "a a a a . . . ."
+    ". . . b b b b b"
+    "c c c c c . . ."
+    ". . . . d d d .";
 
-  & > :nth-child(1) {
-    grid-column: 1 / span 4;
+
+  @media (max-width: 1350px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: 
+      "a a a a a . . ."
+      ". . b b b b b b"
+      "c c c c c . . ."
+      ". . . d d d d .";
   }
 
-  & > :nth-child(2) {
-    grid-column: 4 / span 5;
+  @media (max-width: 610px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: 
+      "a a a a a a . ."
+      ". b b b b b b b"
+      "c c c c c c c ."
+      ". . d d d d d .";
   }
+}
 
-  & > :nth-child(3) {
-    grid-column: 1 / span 5;
-  }
+.card1 {
+  grid-area: a;
+}
 
-  & > :nth-child(4) {
-    grid-column: 5 / span 3;
-  }
+.card2 {
+  grid-area: b;
+}
+
+.card3 {
+  grid-area: c;
+}
+
+.card4 {
+  grid-area: d;
 }
 </style>

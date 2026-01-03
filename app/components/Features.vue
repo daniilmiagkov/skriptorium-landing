@@ -51,14 +51,17 @@ import Messages from './Messages.vue';
 
 .wrapper {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: $spacing-16;
   width: fit-content;
   margin: 0 auto;
+  align-items: flex-start;
 
-  @media (max-width: 768px) {
+
+  @media (max-width: 1000px) {
     flex-direction: column;
     gap: $spacing-6;
+    align-items: center;
   }
 }
 
@@ -76,7 +79,7 @@ import Messages from './Messages.vue';
 }
 
 .messagesContainer {
-  flex: 2;
+  flex: 1;
   padding-top: $spacing-10;
   max-width: 666px;
 }
