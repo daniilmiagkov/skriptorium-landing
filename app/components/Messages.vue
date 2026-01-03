@@ -3,10 +3,10 @@
     <Message
       v-for="(msg, index) in messages"
       :key="index"
-      :number="index + 1"
-    >
-      {{ msg }}
-    </Message>
+      :number="`0${index + 1}`"
+      :variant="index === messages.length - 1 ? 'accent' : 'default'"
+      :text="msg"
+    />
   </div>
 </template>
 
@@ -23,18 +23,26 @@ const messages = [
 
 <style module lang="scss">
 .messagesWrapper {
-  display: flex;
+  display: grid;
   flex-direction: column;
-  gap: 24px;
+  row-gap: 32px;
+  grid-template-columns: repeat(8, 1fr);
+  height: fit-content;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшет и выше */
-    gap: 32px;
+  & > :nth-child(1) {
+    grid-column: 1 / span 4;
   }
 
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки на больших экранах */
-    gap: 40px;
+  & > :nth-child(2) {
+    grid-column: 4 / span 5;
+  }
+
+  & > :nth-child(3) {
+    grid-column: 1 / span 5;
+  }
+
+  & > :nth-child(4) {
+    grid-column: 5 / span 3;
   }
 }
 </style>

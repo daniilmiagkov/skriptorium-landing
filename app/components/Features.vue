@@ -1,35 +1,31 @@
 <template>
   <div :class="$style.container">
-    <h1 :class="$style.title">
-      Систематизируйте знания 
-      в удобных шаблонах
-    </h1>
+    <h1 :class="$style.title">Систематизируйте знания в удобных шаблонах</h1>
 
     <div :class="$style.wrapper">
       <div :class="$style.imageContainer">
         <img
-          :src="screensImg"
+          :src="ScreensImg"
           alt="Иллюстрация"
         >
       </div>
-
-      <div :class="$style.messagesContainer" />
+      <Messages :class="$style.messagesContainer" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import screensImg from '@/assets/screens.png'   // PNG
+import ScreensImg from '@/assets/screens.png';
+import Messages from './Messages.vue';
 </script>
 
 <style module lang="scss">
-// .container {
-//   display: flex;
-
-// }
+.container {
+  margin-top: 500px;
+}
 
 .title {
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
   color: $primary-color;
   max-width: 992px;
@@ -39,23 +35,26 @@ import screensImg from '@/assets/screens.png'   // PNG
 
   @media (max-width: 1600px) {
     font-size: $font-size-4xl;
+    max-width: 700px;
   }
 
   @media (max-width: 1100px) {
     font-size: $font-size-3xl;
+    // max-width: 500px;
   }
 
   @media (max-width: 900px) {
     font-size: $font-size-2xl;
+    max-width: 500px;
   }
 }
 
-
-/* ===== LAYOUT ===== */
 .wrapper {
   display: flex;
   align-items: flex-start;
   gap: $spacing-16;
+  width: fit-content;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -78,10 +77,7 @@ import screensImg from '@/assets/screens.png'   // PNG
 
 .messagesContainer {
   flex: 2;
-  min-width: 200px;
-  padding-top: $spacing-20;
+  padding-top: $spacing-10;
   max-width: 666px;
-  display: flex;
-  flex-direction: column;
 }
 </style>
