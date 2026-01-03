@@ -1,29 +1,50 @@
 <template>
-  <div :class="$style.messageCard">
+  <div
+    :class="[
+      $style.messageCard, 
+      isAccent && $style.accent
+    ]"
+  >
     <div :class="$style.badge">{{ number }}</div>
-    <div :class="$style.text">
-      <slot>{{ text }}</slot>
+    <div :class="[$style.text]">
+      {{ text }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   number: number | string
   text?: string
+  variant?: 'default' | 'accent'
 }>()
+
+const isAccent = computed(() => props.variant === 'accent' )
 </script>
 
 <style module lang="scss">
 .messageCard {
   position: relative;
-  padding: $spacing-6 $spacing-5 $spacing-5 $spacing-5;
+  padding: $spacing-5 $spacing-5 $spacing-5 $spacing-8;
   background: $bg-color;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-2;
+  border-radius: 32px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  width: fit-content;
+  display: inline-block;
+  height: fit-content;
+}
+
+.accent {
+  background-color: $accent-color;
+
+  .text {
+    font-size: $font-size-base;
+    color: $text-color;
+    line-height: 1.5;
+    font-weight: $font-weight-medium;
+    width: fit-content;
+    color: $text-inverse;
+  }
 }
 
 .badge {
@@ -33,9 +54,9 @@ defineProps<{
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #667eea; /* основной цвет */
+  background-color: $primary-color;
   color: white;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-semibold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +65,9 @@ defineProps<{
 
 .text {
   font-size: $font-size-base;
-  color: #333;
+  color: $text-color;
   line-height: 1.5;
+  font-weight: $font-weight-medium;
+  width: fit-content;
 }
 </style>

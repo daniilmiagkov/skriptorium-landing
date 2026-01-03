@@ -22,7 +22,7 @@
 import Pricing from '@/components/Pricing.vue'
 import Title from '@/components/Title.vue'
 import Form from '@/components/Form.vue'
-import Screens from '@/components/Screens.vue'
+import Screens from '@/components/Features.vue'
 
 const handleFormSubmit = (phone: string) => {
   console.log('Номер телефона отправлен:', phone)
@@ -60,22 +60,17 @@ const handleFormSubmit = (phone: string) => {
 /* Title */
 .textBlockWrapper {
   max-width: 1400px;
-  margin-top: $spacing-20;
-  margin-bottom: $spacing-20;
 }
 
 /* Screens — full width */
 .imageMessagesWrapper {
-  width: 100%;
-  margin-top: $spacing-20;
-  margin-bottom: $spacing-20;
-  overflow: hidden;
+    // max-width: 1400px;
+
 }
 
 /* Pricing */
 .pricingWrapper {
   max-width: 1000px;
-  margin-bottom: $spacing-20;
 }
 
 /* Form */
