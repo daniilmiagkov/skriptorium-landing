@@ -3,20 +3,7 @@
     <h1 :class="$style.title">Тарифы</h1>
 
     <header :class="$style.header">
-      <div :class="$style.periodContainer">
-        <div :class="$style.periodButtons">
-          <button
-            v-for="(p, idx) in periods"
-            :key="p.label"
-            type="button"
-            :class="[ $style.periodButton, selectedIndex === idx ? $style.periodButtonActive : '' ]"
-            :aria-pressed="selectedIndex === idx"
-            @click="selectedIndex = idx"
-          >
-            {{ p.label }}
-          </button>
-        </div>
-      </div>
+      <PeriodContainer />
     </header>
 
     <div :class="$style.featureCardCosts">
@@ -38,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import CostCard, { type FeatureItem } from './CostCard.vue'
+import PeriodContainer from './PeriodContainer.vue';
 
 const basicFeatures: FeatureItem[] = [
   { text: 'Базовый набор шаблонов' },
@@ -56,15 +43,6 @@ const proFeatures: FeatureItem[] = [
   { text: 'ИИ агент GigaChat' },
   { text: 'Постоянная поддержка' }
 ]
-
-const periods = [
-  { label: '6 мес', months: 6 },
-  { label: '9 мес', months: 9 },
-  { label: '1 год', months: 12 },
-  { label: '2 года', months: 24 }
-]
-
-const selectedIndex = ref(2)
 </script>
 
 <style module lang="scss">
@@ -84,43 +62,6 @@ const selectedIndex = ref(2)
   text-align: center;
   color: $primary-color;
   margin-bottom: 60px;
-}
-
-.periodContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: $bg-color;
-  border-radius: $border-radius-full;
-  max-width: 420px;
-  padding: 0 0px;
-  box-shadow: $shadow-md; 
-}
-.periodButtons {
-  display: flex;
-  align-items: center;
-  width: 480px;
-  justify-content: space-between
-}
-
-.periodButton {
-  padding: $spacing-2 $spacing-5;
-  border-radius: $border-radius-full;
-  border: none;
-  background: transparent;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-lg;
-  cursor: pointer;
-  user-select: none;
-  box-shadow: none;
-  color: $primary-color;
-  font-family: $font-family-base;
-}
-
-.periodButtonActive {
-  background: $accent-color;
-  color: $text-inverse;
-  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
 }
 
 .featureCardCosts {
