@@ -8,7 +8,12 @@
       <p :class="$style.featureCardCostPeriod">за пользователя/месяц</p>
     </div>
 
-    <button :class="$style.featureCardButton">2 месяца бесплатно</button>
+    <ButtonCTA
+      size="medium"
+      :class="$style.featureCardButton"
+    >
+      2 месяца бесплатно
+    </ButtonCTA>
 
     <div :class="$style.featureCardItems">
       <div
@@ -16,7 +21,7 @@
         :key="item.text"
         :class="[
           $style.featureCardItem,
-          item.tone && $style[`featureCardItem--${item.tone}`]
+          item.variant && $style[`featureCardItem--${item.variant}`]
         ]"
       >
         <CheckIcon :class="$style.featureCardItemIcon" />
@@ -30,10 +35,11 @@
 
 <script setup lang="ts">
 import CheckIcon from '@/assets/icons/check.svg'
+import ButtonCTA from './ButtonCTA.vue';
 
 export type FeatureItem = {
   text: string
-  tone?: 'default' | 'accent' | 'muted'
+  variant?: 'default' | 'accent' | 'muted'
 }
 
 defineProps<{
@@ -54,65 +60,67 @@ defineProps<{
   flex-direction: column;
   justify-content: space-between;
   font-size: $font-size-lg;
-    box-shadow: $shadow-md;
+  box-shadow: $shadow-md;
 
+  @media (max-width: 1000px) {
+    font-size: $font-size-lg;
+    padding: $spacing-10 $spacing-12;
+  }
+
+  @media (max-width: 830px) {
+    font-size: $font-size-base;
+    padding: $spacing-8 $spacing-12;
+  }
+
+  @media (max-width: 700px) {
+    padding: $spacing-5 $spacing-8;
+  }
 }
 
 .featureCardTitle {
-  font-size: $font-size-3xl;
+  font-size: 2em;                 
   font-weight: $font-weight-bold;
   color: $primary-color;
-  margin: 0 0 $spacing-2 0;
+  margin: 0 0 0.4em 0;             
 }
 
 .featureCardDescription {
+  font-size: 1em;
   color: $text-muted;
-  margin: 0 0 $spacing-3 0;
+  margin: 0 0 0.6em 0;             
 }
 
 .featureCardCostContainer {
-  margin: $spacing-3 0;
+  margin: 0.6em 0;                 
 }
 
 .featureCardCost {
-  font-size: 2.25rem;
+  font-size: 1.8em;               
   font-weight: $font-weight-bold;
   color: $primary-color;
   margin: 0;
 }
 
 .featureCardCostPeriod {
+  font-size: 0.8em;                
   color: $text-muted;
-  margin: $spacing-1 0 0 0;
-}
-
-.featureCardButton {
-  background: $accent-color;
-  color: white;
-  border: none;
-  border-radius: $border-radius-lg;
-  padding: $spacing-4 $spacing-12;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-lg;
-  font-family: $font-family-base;
+  margin: 0.2em 0 0 0;            
 }
 
 .featureCardItems {
-  margin-top: $spacing-4;
+  margin-top: 0.8em;              
   display: flex;
   flex-direction: column;
-  gap: $spacing-3;
+  gap: 0.6em;                     
   color: $primary-color;
 }
 
 .featureCardItem {
   display: flex;
   align-items: center;
-  gap: $spacing-3;
-  font-size: $font-size-lg;
-  color: $text-color;
-    color: $primary-color;
-
+  gap: 0.6em;                    
+  font-size: 1em;
+  color: $primary-color;
 }
 
 .featureCardItem--accent {
@@ -124,8 +132,8 @@ defineProps<{
 }
 
 .featureCardItemIcon {
-  width: 20px;
-  height: 16px;
+  width: 1em;                      
+  height: 0.8em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
