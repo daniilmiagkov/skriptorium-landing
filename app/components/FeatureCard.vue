@@ -45,7 +45,6 @@ defineProps<{
 </script>
 
 <style module lang="scss">
-/* --- стили компонента --- */
 .featureCard {
   background: $bg-color;
   border-radius: $border-radius-md;
@@ -124,7 +123,6 @@ defineProps<{
   color: $text-muted;
 }
 
-/* Иконка */
 .featureCardItemIcon {
   width: 20px;
   height: 16px;
@@ -135,14 +133,10 @@ defineProps<{
   color: inherit;
 }
 
-/* ❗ КРИТИЧНО:
-   ТРОГАЕМ ТОЛЬКО STROKE
-   FILL НЕ ТРОГАЕМ — иначе ломается форма */
 .featureCardItemIcon path {
   stroke: currentColor !important;
 }
 
-/* если вдруг stroke задан не на path, а выше */
 .featureCardItemIcon svg {
   stroke: currentColor;
 }

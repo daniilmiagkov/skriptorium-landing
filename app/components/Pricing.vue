@@ -7,14 +7,14 @@
     </header>
 
     <div :class="$style.featureCardCosts">
-      <CostCard
+      <FeatureCard
         title="Базовый"
         description="Быстрый старт для отделения с хорошей базой и шаблонами"
         :price="319"
         :features="basicFeatures"
       />
 
-      <CostCard
+      <FeatureCard
         title="Pro"
         description="Масимум возможностей с ИИ и персональной поддержкой"
         :price="549"
@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import CostCard, { type FeatureItem } from './CostCard.vue'
+import FeatureCard, { type FeatureItem } from './FeatureCard.vue'
 import PeriodContainer from './PeriodContainer.vue';
 
 const basicFeatures: FeatureItem[] = [
@@ -73,7 +73,7 @@ const proFeatures: FeatureItem[] = [
   
 }
 
-@media (max-width: 920px) {
+@media (max-width: 760px) {
   .featureCardCosts {
     grid-template-columns: 1fr;
     gap: $spacing-5;
