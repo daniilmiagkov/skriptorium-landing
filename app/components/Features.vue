@@ -25,7 +25,7 @@ import Messages from './Messages.vue';
 }
 
 .title {
-  margin: auto;
+  margin: 0 auto $spacing-12;
   text-align: center;
   color: $primary-color;
   max-width: 992px;
@@ -40,7 +40,6 @@ import Messages from './Messages.vue';
 
   @media (max-width: 1100px) {
     font-size: $font-size-3xl;
-    // max-width: 500px;
   }
 
   @media (max-width: 900px) {

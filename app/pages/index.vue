@@ -30,58 +30,32 @@ const handleFormSubmit = (phone: string) => {
 </script>
 
 <style module lang="scss">
-/* =====================
-   BASE LAYOUT (FLEX)
-===================== */
 .home {
   min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  gap: $spacing-20;
 }
 
-/* =====================
-   COMMON CONTAINER
-===================== */
 .textBlockWrapper,
 .pricingWrapper,
 .formWrapper {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  // padding-left: $spacing-6;
-  // padding-right: $spacing-6;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+  margin: 0 auto;
 }
 
-/* =====================
-   SECTIONS
-===================== */
-
-/* Title */
 .textBlockWrapper {
   max-width: 1400px;
 }
 
-/* Screens — full width */
-.imageMessagesWrapper {
-    // max-width: 1400px;
-
-}
-
-/* Pricing */
-.pricingWrapper {
-  max-width: 1000px;
-}
-
-/* Form */
 .formWrapper {
   max-width: 720px;
-  margin-bottom: $spacing-20;
+  margin: auto;
 }
 
-/* =====================
-   ≤ 1024px (tablet)
-===================== */
 @media (max-width: 1024px) {
   .textBlockWrapper {
     margin-bottom: $spacing-16;
@@ -96,9 +70,6 @@ const handleFormSubmit = (phone: string) => {
   }
 }
 
-/* =====================
-   ≤ 768px (mobile)
-===================== */
 @media (max-width: 768px) {
   .textBlockWrapper,
   .pricingWrapper,
@@ -120,9 +91,6 @@ const handleFormSubmit = (phone: string) => {
   }
 }
 
-/* =====================
-   ≤ 480px
-===================== */
 @media (max-width: 480px) {
   .textBlockWrapper,
   .pricingWrapper,
