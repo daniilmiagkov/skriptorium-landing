@@ -44,6 +44,7 @@ const selectedIndex = ref(2)
   max-width: 390px;
   padding: 0 0px;
   box-shadow: $shadow-md; 
+  width: fit-content;
 }
 
 .periodButtons {
@@ -78,7 +79,7 @@ const selectedIndex = ref(2)
     cursor: default;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 830px) {
     font-size: $font-size-base;
     padding: $spacing-2 $spacing-4;
   }
