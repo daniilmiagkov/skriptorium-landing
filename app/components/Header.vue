@@ -79,7 +79,8 @@ function goContact() {
   align-items: center;
   justify-content: space-between;
   padding: $spacing-4;
-
+  max-width: 1400px;
+  margin: 0 auto;
   @media (max-width: 900px) {
     display: grid;
       grid-template-columns: 1fr 1fr 1fr;

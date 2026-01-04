@@ -20,7 +20,6 @@ useHead({
 
 <style module lang="scss">
 .main {
-  // flex: 1;
   background-color: $bg-soft;
   font-family: $font-family-base;
 }
