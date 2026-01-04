@@ -41,7 +41,7 @@ const selectedIndex = ref(2)
   justify-content: flex-start;
   background: $bg-color;
   border-radius: $border-radius-full;
-  max-width: 420px;
+  max-width: 390px;
   padding: 0 0px;
   box-shadow: $shadow-md; 
 }
@@ -49,7 +49,6 @@ const selectedIndex = ref(2)
 .periodButtons {
   display: flex;
   align-items: center;
-  // width: 480px;
   justify-content: space-between
 }
 
