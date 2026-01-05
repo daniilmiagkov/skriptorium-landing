@@ -1,35 +1,29 @@
-# landing/Dockerfile
-# Build stage
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Install pnpm
 RUN npm install -g pnpm
 
-# Copy package files first for caching
 COPY package.json pnpm-lock.yaml ./
 
 RUN pnpm install --frozen-lockfile
 
-# Copy source and build
 COPY . .
+
 RUN pnpm build
 
-# landing/Dockerfile (измени финальную stage)
-FROM nginx:stable-alpine AS runner
+FROM node:20-alpine AS runner
+WORKDIR /app
 
-# install curl for healthcheck and keep image small
-RUN apk add --no-cache curl
+ENV NODE_ENV=production
 
-# Copy nginx conf and static files
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+RUN npm install -g pnpm
 
-RUN chown -R nginx:nginx /usr/share/nginx/html
+COPY --from=builder /app/.output ./.output
+COPY --from=builder /app/package.json ./
 
-EXPOSE 80
+EXPOSE 3000
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
-  CMD curl -fsS http://127.0.0.1/ >/dev/null || exit 1
+  CMD wget -qO- http://127.0.0.1:3000/ || exit 1
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", ".output/server/index.mjs"]
