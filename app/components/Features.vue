@@ -21,7 +21,11 @@ import Messages from './Messages.vue';
 
 <style module lang="scss">
 .container {
-  margin-top: 500px;
+  margin-top: 34vh;
+
+  @media (max-width: 900px) {
+    margin-top: 26vh;
+  }
 }
 
 .title {
