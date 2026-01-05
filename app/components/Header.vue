@@ -25,7 +25,6 @@
       />
       <ButtonCTA
         v-if="!isMobile"
-        size="medium"
         class="$style.ctaButton"
         @click="goContact"
       />

@@ -24,8 +24,7 @@
               @input="formatPhone"
             >
 
-            <!-- Просто визуальная замена на buttonCTA -->
-            <ButtonCTA :class="$style.button" />
+            <ButtonCTA size="medium" />
           </div>
 
           
@@ -50,7 +49,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import ButtonCTA from './ButtonCTA.vue'
+import ButtonCTA from './ButtonCTA.vue';
 
 const emit = defineEmits<{
   submit: [phone: string]
@@ -62,7 +61,6 @@ const successMessage = ref('')
 const errorMessage = ref('')
 
 const handleSubmit = async () => {
-  // Базовая валидация номера
   const cleanedPhone = phone.value.replace(/\D/g, '')
   
   if (cleanedPhone.length < 11) {
@@ -77,16 +75,13 @@ const handleSubmit = async () => {
   errorMessage.value = ''
   
   try {
-    // Здесь может быть API вызов
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Имитация запроса
+    await new Promise(resolve => setTimeout(resolve, 1000))
     
     emit('submit', phone.value)
     
-    // Показываем сообщение об успехе
     successMessage.value = 'Спасибо! Мы скоро вам перезвоним.'
     phone.value = ''
     
-    // Скрываем сообщение через 5 секунд
     setTimeout(() => {
       successMessage.value = ''
     }, 5000)
@@ -177,9 +172,9 @@ const formatPhone = (event: Event) => {
 
 .formGroup {
   display: flex;
-  gap: $spacing-4;          // расстояние между input и кнопкой
+  gap: $spacing-4;       
   align-items: center;
-justify-content: center;
+  justify-content: center;
 
 
   @media (max-width: 768px) {
@@ -206,23 +201,6 @@ justify-content: center;
     outline: none;
   }
 }
-
-.button {
-    font-size: $font-size-lg;
-
-}
-
-/* Альтернативный вариант с display: inline-block */
-/* .input {
-  display: inline-block;
-  min-width: 280px;
-  padding: 12px 32px;
-  font-size: 20px;
-  border-radius: 9999px;
-  background: $bg-color;
-  color: $text-muted;
-  font-family: $font-family-base;
-} */
 
 .loader {
   width: 20px;

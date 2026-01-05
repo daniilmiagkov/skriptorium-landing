@@ -8,10 +8,7 @@
       <p :class="$style.featureCardCostPeriod">за пользователя/месяц</p>
     </div>
 
-    <ButtonCTA
-      size="medium"
-      :class="$style.featureCardButton"
-    >
+    <ButtonCTA :class="$style.featureCardButton">
       2 месяца бесплатно
     </ButtonCTA>
 

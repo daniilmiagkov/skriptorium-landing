@@ -2,9 +2,6 @@
   <button
     :class="[
       $style.button,
-      size === 'small' && $style.small,
-      size === 'medium' && $style.medium,
-      size === 'large' && $style.large,
       fullWidth && $style.fullWidth,
       isLoading && $style.loading
     ]"
@@ -28,13 +25,11 @@
 const props = withDefaults(
   defineProps<{
     text?: string
-    size?: 'small' | 'medium' | 'large'
     fullWidth?: boolean
     isLoading?: boolean
     disabled?: boolean
   }>(), {
     text: 'Оставить заявку',
-    size: 'medium',
     fullWidth: false,
     isLoading: false,
     disabled: false
@@ -73,18 +68,6 @@ const handleClick = () => {
   transition: all 0.25s ease;
 
   padding: 0.8em 1.6em; 
-}
-
-.small {
-  font-size: 0.875em; 
-}
-
-.medium {
-  font-size: 1em; 
-}
-
-.large {
-  font-size: 1.125em; 
 }
 
 .content {
