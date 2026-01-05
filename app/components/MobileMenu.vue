@@ -33,7 +33,7 @@ defineProps<{
 .nav {
   display: flex;
   flex-direction: column;
-  gap: $spacing-4;
+  gap: $spacing-6;
   align-items: center;
   justify-content: center;
   height: 100%;
