@@ -48,13 +48,6 @@ defineProps<{
 </script>
 
 <style module lang="scss">
-/* reset */
-button,
-fieldset,
-input {
-  all: unset;
-}
-
 .DialogOverlay {
   background-color: rgba(0, 0, 0, 0.44);
   position: fixed;
@@ -96,53 +89,6 @@ input {
   font-size: 17px;
 }
 
-.DialogDescription {
-  margin: 10px 0 20px;
-  color: #6f6c6d;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.Button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  padding: 0 15px;
-  font-size: 15px;
-  line-height: 1;
-  font-weight: 500;
-  height: 35px;
-  cursor: pointer;
-}
-
-.Button.trigger {
-  background-color: white;
-  color: $text-color;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
-}
-
-.Button.trigger:hover {
-  background-color: #fbfafb;
-}
-
-.Button.trigger:focus {
-  box-shadow: 0 0 0 2px black;
-}
-
-.Button.save {
-  background-color: #edf9ee;
-  color: $text-color;
-}
-
-.Button.save:hover {
-  background-color: #e2f7e5;
-}
-
-.Button.save:focus {
-  box-shadow: 0 0 0 2px #30a14e;
-}
-
 .IconButton {
   font-family: inherit;
   border-radius: 100%;
@@ -166,56 +112,12 @@ input {
   box-shadow: 0 0 0 2px #68cf7d;
 }
 
-.Fieldset {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.Label {
-  font-size: 15px;
-  color: #46a758;
-  width: 90px;
-  text-align: right;
-}
-
-.Input {
-  width: 100%;
-  flex: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  padding: 0 10px;
-  font-size: 15px;
-  line-height: 1;
-  color: #46a758;
-  box-shadow: 0 0 0 1px #68cf7d;
-  height: 35px;
-}
-
-.Input:focus {
-  box-shadow: 0 0 0 2px #7fe29a;
-}
-
 @keyframes overlayShow {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes contentShow {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -48%) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
   }
 }
 </style>
