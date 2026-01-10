@@ -2,11 +2,6 @@ import svgLoader from 'vite-svg-loader';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // app: {
-  //   head: {
-  //     link
-  //   }
-  // }
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['@/assets/scss/main.scss'],
@@ -21,7 +16,7 @@ export default defineNuxtConfig({
     plugins: [svgLoader()],
   },
   devServer: {
-    host: '0.0.0.0', // Разрешить доступ из локальной сети
+    host: '0.0.0.0',
     port: 3000,
   },
 });
